@@ -1,0 +1,144 @@
+#ex1
+def factorial(n):
+  while (not n.isnumeric() or int(n)<0):
+    n=input("invalid number, please enter a positive integer: ")
+    
+  n=int(n)
+  
+  if n>0:
+    for i in range(n-1,0,-1):
+      n=n*i
+    return n
+  
+  else:
+    return 1
+
+x=input()
+print(factorial(x))
+
+print("--------------------------")
+
+###################
+
+#ex2
+
+def divisors(n):
+  while (not n.isnumeric() or int(n)<0):
+    n=input("invalid input, please enter a positive integer: ")
+  n=int(n)
+  
+  if n>0:
+    divisors=[]
+    for i in range(1,n+1):
+      if n%i==0:
+        divisors.append(i)
+    return divisors
+  else:
+     return "All non-zero numbers are divisors of 0"
+
+y=input()
+print(divisors(y))
+
+print("--------------------------")
+
+###################
+
+#ex3
+
+def reverseString(a):
+  st=""
+  for i in range(len(a)-1,-1,-1):
+    st+=a[i]
+  print(st)
+
+string=input()
+reverseString(string)
+
+print("--------------------------")
+
+###################
+
+#ex4
+
+
+def listOfEven(c):
+    list2=[]
+    for i in range(len(c)):
+        if int(c[i])%2==0:
+            list2.append(c[i])
+    return list2
+list3 =[]
+a =""
+while a!="stop":
+    a = input("please enter a number :")
+    
+    if a!="stop":
+        list3.append(a)
+
+print(list3)
+print(listOfEven(list3))
+
+ ##################
+
+#ex5
+
+def strongPass(a):
+  hasLowerLetter=False
+  hasCapitalLetter=False
+  hasDigit=False
+  hasSpecialLetter=False
+  has8letter=True
+  if len(a) < 8:
+    has8letter=False
+  for i in range(len(a)):
+    if 'a'<=a[i]<='z':
+      hasLowerLetter=True
+    if 'A'<=a[i]<='Z':
+      hasCapitalLetter=True
+    if a[i].isnumeric():
+      hasDigit=True
+    if a[i]=='!' or a[i]=='$' or a[i]=='#' or a[i]=='?':
+      hasSpecialLetter=True
+  if(hasLowerLetter and hasCapitalLetter and hasDigit and hasSpecialLetter and has8letter):
+    return "strong pass"
+  else:
+    return "weak pass"
+x = input("enter a pass :")
+print(strongPass(x))
+
+#######################
+
+#ex6
+
+def ipv4(a,b,c,d):
+  s=""
+  if 0<int(a)<255:
+      s=s+str(a)+'.'
+  if 0<int(b)<255:
+      s=str(a)+'.'+str(b)+'.'
+  if 0<int(c)<255:
+      s=str(a)+'.'+str(b)+'.'+str(c)+'.'
+  if 0<int(d)<255:
+      s=str(a)+'.'+str(b)+'.'+str(c)+'.'+str(d)
+  if (int(a)<0 or int(a)>255):
+      return "invalid ipv4"
+  if (int(b)<0 or int(b)>255):
+      return "invalid ipv4"
+  if (len(a)>1 and a[0]=='0'):
+      return "invalid ipv4"
+  if (len(b)>1 and b[0]=='0'):
+      return "invalid ipv4"
+  if (int(c)<0 or int(c)>255):
+      return "invalid ipv4"
+  if (int(d)<0 or int(d)>255):
+      return "invalid ipv4"
+  if (len(c)>1 and c[0]=='0'):
+      return "invalid ipv4"
+  if (len(d)>1 and d[0]=='0'):
+      return "invalid ipv4"
+  return s
+x = input("please enter a : ")        
+y = input("please enter b : ")
+z = input("please enter c : ")
+w = input("please enter d : ")   
+print(ipv4(x,y,z,w))
