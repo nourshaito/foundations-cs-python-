@@ -1,0 +1,104 @@
+######################
+#choice_1/Count Digits
+counter=0
+def countDigits(nb):
+  global counter
+  if(nb==0):#function will stop and return final value of the counter
+    return counter
+  else:
+    counter+=1
+    return countDigits(nb//10)#remove last digit of nb & recall function
+
+######################
+#choice_2/Find Max
+max=0
+i=0
+def findMax(list):
+  global max#global allow use & change value of variable
+  global i#global allow use & change value of variable
+  if(i<len(list)):
+    if(list[i]>max):
+      max=list[i]#index i is the new max of the list
+    i+=1
+    return findMax(list)
+  else:
+    return max
+    
+######################
+#choice_3.1/Count Tags
+counter2=0
+hText="""
+<html>
+<head>
+<title>My Website</title>
+</head>
+<body>
+<h1>Welcome to my website!</h1>
+<p>Here you'll find information about me and my hobbies.</p>
+<h2>Hobbies</h2>
+<ul>
+<li>Playing guitar</li>
+<li>Reading books</li>
+<li>Traveling</li>
+<li>Writing cool h1 tags</li>
+</ul>
+</body>
+</html>"""
+k=1
+def countTag(tag):
+  global counter2
+  global k
+  if hText[k+1:k+len(tag)+1]==tag and hText[k]=="<" and hText[k+len(tag)+1]==">":#check if it's the tag the user entered
+     counter2+=1
+  k+=1
+  if(k>len(hText)):
+    return counter2#return how many times the tag is repeated
+  else:
+    return countTag(tag)
+################################
+
+#build the menu
+j=0
+while(j==0):#keep looping until j!=0
+  print("1. Count Digits\n2. Find Max\n3.1. Count Tags\n3.2. Count Normalized Columns\n4. Exit\n- - - - - - - - - - - - - - - ")
+  choice=float(input("Enter a choice: "))
+  if(choice==1):
+    nb=input("Enter a number: ")
+    while(not nb.isnumeric()):#isnumeric to make sure user enter an integer
+      nb=input("Enter a number: ")
+    print("The number is composed of: "+str(countDigits(int(nb)))+" digits")
+    print("- - - - - - - - - - - - - - -\n")
+    counter=0#reset the variable if user re-use this function
+################################
+  
+  elif(choice==2):
+    nb=' '
+    list=[]
+    while(nb!=''):#keep looping until user press enter
+      nb=input("Enter an integer (or just press enter to stop):")
+      if(nb==''):
+        break
+      while(not nb.isnumeric()):#check if user enter an integer
+        nb=input("Enter an integer (or just press enter to stop):")
+      list.append(int(nb))#add new index to the list
+    print(findMax(list))
+    print("- - - - - - - - - - - - - - -\n")
+    max=0#reset the variable
+    i=0#reset the variable
+################################
+  
+  elif(choice==3.1):
+    tag=input("Enter a tag(html, head,...ect): ")
+    print(countTag(tag))
+    print("- - - - - - - - - - - - - - -\n")
+    counter2=0#reset the variable
+    k=1#reset the variable
+################################
+  
+  elif(choice==3.2):
+    print("Sorry not Sorry :p \n")
+    print("- - - - - - - - - - - - - - -\n")
+    
+  elif(choice==4):#terminate the program
+    j=1
+    print("Have a Nice Day!")
