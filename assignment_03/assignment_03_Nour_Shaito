@@ -20,7 +20,7 @@ def get_All_Student(list1):
 def get_Students_By_Major(list1,major,counter3=0):
   for i in range(len(list1)):
     if(list1[i]["Major"]==major):
-      print("Name: "+list1[i]["Name"])
+      print("Student Name is: "+list1[i]["Name"])
       counter3+=1
   if(counter3==0):
     print("There is no student with that major")
@@ -35,11 +35,30 @@ def add_Student(list1,name,age,major,gpa):
   list1[len(list1)-1]["Major"]=major
   list1[len(list1)-1]["GPA"]=gpa
   print(list1[len(list1)-1])
+#-----------------------------------------
+#choice5
+
+def findCommonMajors(list1,set={''}):
+  if(set=={''}):
+    set.remove('')
+  for i in range(len(list1)-1):
+    for j in range(i+1,len(list1)):
+      if(list1[i]["Major"]==list1[j]["Major"]):
+        set.add(list1[i]["Major"])
+  return set
+#-----------------------------------------
+#choice6
+def deleteStudent(list1,id):
+  for i in range(len(list1)):
+    if(list1[i]["ID"]==int(id)):
+      print("The student with ID "+str(list1[i]["ID"])+" is DELETED")
+      return list1.remove(list1[i])
+  print("No student was not found with this ID")
 
 #-----------------------------------------
 #define a list
 
-list1=[{"ID":1,"Name":"1","Age":2,"Major":"4","GPA":4},{"ID":2,"Name":"1","Age":2,"Major":"3","GPA":5},{"ID":3,"Name":"1","Age":2,"Major":"2","GPA":5}]
+list1=[{"ID":1,"Name":"1","Age":2,"Major":"4","GPA":4},{"ID":2,"Name":"1","Age":2,"Major":"3","GPA":5},{"ID":3,"Name":"1","Age":2,"Major":"3","GPA":5}]
 #-----------------------------------------
 #print the menu
 print("""
@@ -84,9 +103,14 @@ while(choice!="9"):
     gpa=float(input("Enter a gpa: "))
     add_Student(list1,name,int(age),major,gpa)
 #5-----------------------------------------------------
-  #if(choice=="5"):
+  if(choice=="5"):
+    print(findCommonMajors(list1))
 #6-----------------------------------------------------
-  #if(choice=="6"):
+  if(choice=="6"):
+    id=input("Enter an ID: ")
+    while(not id.isnumeric()):
+      id=input("Invalid ID, enter again: ")
+    deleteStudent(list1,id)
 #7-----------------------------------------------------
   #if(choice=="7"):
 #8-----------------------------------------------------
