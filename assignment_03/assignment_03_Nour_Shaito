@@ -54,7 +54,29 @@ def deleteStudent(list1,id):
       print("The student with ID "+str(list1[i]["ID"])+" is DELETED")
       return list1.remove(list1[i])
   print("No student was not found with this ID")
+#-----------------------------------------
+#choice7
+def calculateAverageGPA(list1,gpa=0):
+  for i in range(len(list1)):
+      gpa+=list1[i]["GPA"]
+  return gpa/len(list1)
 
+#-----------------------------------------
+#choice8
+def topStudent(list1,t):
+  tuple1=[]
+  max=0
+  list2=list1.copy()
+  for i in range(t):
+    for j in range(len(list2)-1):
+      for k in range(j+1,len(list2)):
+        if list2[k]["GPA"]>list2[j]["GPA"]:
+          max=k
+        else:
+          max=j
+    tuple1.append(list2[max]["Name"])
+    list2.remove(list2[max])
+  return tuple(tuple1)
 #-----------------------------------------
 #define a list
 
@@ -112,9 +134,14 @@ while(choice!="9"):
       id=input("Invalid ID, enter again: ")
     deleteStudent(list1,id)
 #7-----------------------------------------------------
-  #if(choice=="7"):
+  if(choice=="7"):
+    print(calculateAverageGPA(list1))
 #8-----------------------------------------------------
-  #if(choice=="8"):
+  if(choice=="8"):
+    t=input("Enter the number of Top Students: ")
+    while(not t.isnumeric() or int(t)>=len(list1)):
+      t=input("Please enter an integer less than "+str(len(list1))+": ")
+    print(topStudent(list1,int(t)))
 #9-----------------------------------------------------
   if(choice=="9"):
     print("EXIT the APP")
