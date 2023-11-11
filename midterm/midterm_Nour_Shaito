@@ -1,3 +1,13 @@
+#pip install validators
+import validators
+
+
+#choice1:open tab
+def openTab(lst,title,url):
+  lst.append({})
+  lst[len(lst)-1]["Title"]=title
+  lst[len(lst)-1]["URL"]=url
+  print(lst[len(lst)-1])
 #-----------------------------------------
 #print menu
 print("""
@@ -22,3 +32,11 @@ while(choice!="9"):
   choice=input("Enter your choice: ")
   while(not choice.isnumeric()):
       choice=input("Error, please enter a valid number: ")
+#1-----------------------------------------
+  if(choice=="1"):
+    title=input("Enter the Title: ")
+    url=input("Enter the URL: ")
+    while(not validators.url(url)):
+      url=input("Invalid URL, please enter a valid one: ")
+    openTab(lst,title,url)
+    print("- - - - - - - - - - - - - - -")
