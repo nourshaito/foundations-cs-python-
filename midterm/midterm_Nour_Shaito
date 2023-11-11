@@ -8,6 +8,19 @@ def openTab(lst,title,url):
   lst[len(lst)-1]["Title"]=title
   lst[len(lst)-1]["URL"]=url
   print(lst[len(lst)-1])
+
+#choice2:close tab
+def closeTab(lst):
+  if(int(index)>len(lst)):
+    for i in range(len(lst)):
+      if(lst[i]==lst[len(lst)-1]):
+        print("Tab is closed.")
+        return lst.remove(lst[len(lst)-1])
+      elif(lst[i]==int(index)):
+          print("Tba is closed.")
+          return lst.remove(lst[i])
+  print("no Tab was found.")
+
 #-----------------------------------------
 #print menu
 print("""
@@ -33,6 +46,7 @@ while(choice!="9"):
   while(not choice.isnumeric()):
       choice=input("Error, please enter a valid number: ")
 #1-----------------------------------------
+#built in fn from: https://www.codingdeeply.com/python-check-if-url-is-valid/#google_vignette --- to validate URL
   if(choice=="1"):
     title=input("Enter the Title: ")
     url=input("Enter the URL: ")
