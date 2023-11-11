@@ -11,15 +11,14 @@ def openTab(lst,title,url):
 #-----------------------------------------
 #choice2:close tab
 def closeTab(lst,index):
-  if(int(index)>len(lst)):
+  if(int(index)>len(lst) and lst!=[]):
+    return lst.remove(lst[len(lst)-1])
+  elif(lst==[]):
+    print("no Tab was found.")
+  else:
     for i in range(len(lst)):
-      if(lst[i]==lst[len(lst)-1]):
-        print("Tab is closed.")
-        return lst.remove(lst[len(lst)-1])
-      elif(lst[i]==lst[index]):
-        print("Tab is closed.")
+      if(lst[i]==lst[int(index)]):
         return lst.remove(lst[i])
-  print("no Tab was found.")
 #-----------------------------------------
 #print menu
 print("""
@@ -55,7 +54,7 @@ while(choice!="9"):
     print("- - - - - - - - - - - - - - -")
 #2-----------------------------------------
   if(choice=="2"):
-    index=input("Enter the index of the Tab you want to close: ")
+    index=input("Enter the index(0~"+str(len(lst))+") of the Tab you want to close: ")
     while(not index.isnumeric()):
       index=input("Error, please enter an index: ")
     closeTab(lst)
