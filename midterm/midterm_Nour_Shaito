@@ -8,19 +8,18 @@ def openTab(lst,title,url):
   lst[len(lst)-1]["Title"]=title
   lst[len(lst)-1]["URL"]=url
   print(lst[len(lst)-1])
-
+#-----------------------------------------
 #choice2:close tab
-def closeTab(lst):
+def closeTab(lst,index):
   if(int(index)>len(lst)):
     for i in range(len(lst)):
       if(lst[i]==lst[len(lst)-1]):
         print("Tab is closed.")
         return lst.remove(lst[len(lst)-1])
-      elif(lst[i]==int(index)):
-          print("Tba is closed.")
-          return lst.remove(lst[i])
+      elif(lst[i]==lst[index]):
+        print("Tab is closed.")
+        return lst.remove(lst[i])
   print("no Tab was found.")
-
 #-----------------------------------------
 #print menu
 print("""
@@ -53,4 +52,11 @@ while(choice!="9"):
     while(not validators.url(url)):
       url=input("Invalid URL, please enter a valid one: ")
     openTab(lst,title,url)
+    print("- - - - - - - - - - - - - - -")
+#2-----------------------------------------
+  if(choice=="2"):
+    index=input("Enter the index of the Tab you want to close: ")
+    while(not index.isnumeric()):
+      index=input("Error, please enter an index: ")
+    closeTab(lst)
     print("- - - - - - - - - - - - - - -")
