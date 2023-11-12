@@ -74,6 +74,11 @@ def clearAllTabs(lst):
     else:
       print("There is no opened tabs")
 #-----------------------------------------
+#choice7: Save Tabs
+def saveTabs(lst):
+  final = json.dumps(lst, indent=1)
+  print(final)
+#-----------------------------------------
 #define an empty list of dictionaries
 lst=[]
 #-----------------------------------------
@@ -142,6 +147,10 @@ while(choice!="9"):
 #6-----------------------------------------
   if(choice=="6"):
     clearAllTabs(lst)
+    print("- - - - - - - - - - - - - - -")
+#7-----------------------------------------
+  if(choice=="7"):
+    saveTabs(lst)
     print("- - - - - - - - - - - - - - -")
 #9-----------------------------------------
   if(choice=="9"):
