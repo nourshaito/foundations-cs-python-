@@ -173,6 +173,15 @@ while(choice!="9"):
       isExisting=os.path.exists(path)
     saveTabs(lst,path)
     print("- - - - - - - - - - - - - - -")
+#8-----------------------------------------
+  if(choice=="8"):
+    path=input("Enter a path: ")
+    isExisting=os.path.exists(path)
+    while(isExisting==False):
+      path=input("No such file or directory,enter a path: ")
+      isExisting=os.path.exists(path)
+    importTabs(path)
+  print("- - - - - - - - - - - - - - -")
 #9-----------------------------------------
   if(choice=="9"):
     print("EXIT the APP")
