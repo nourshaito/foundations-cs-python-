@@ -78,16 +78,18 @@ def clearAllTabs(lst):
 #-----------------------------------------
 #json info from: https://www.geeksforgeeks.org/python-convert-list-of-dictionaries-to-json/
 #choice7: Save Tabs
-def saveTabs(lst):  
-  json_file=json.dumps(lst, indent=1)
-  with open('json_file.json', 'w') as file:
-    file.write(json_file)
+def saveTabs(lst,path):
+  # path ex: "C:/Users/userc/OneDrive/Desktop/folder_name"
+  # use forward slash (/) only
+  save_file=open(path+"/savefile.json", "w") 
+  json.dump(lst, save_file, indent = 1)
 
+  save_file.close()
 #-----------------------------------------
 #choice8: Import Tabs
 def importTabs(path): 
   # path ex: "C:/Users/userc/OneDrive/Desktop/folder_name/file_name.json"
-  # use forward slash (/) only
+  # use forward slash (/) only, after path add / + your json file_name+.json
     file= open(path,)
     data= json.load(file)
     print(data)
