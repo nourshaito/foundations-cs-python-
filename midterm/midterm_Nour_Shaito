@@ -1,6 +1,7 @@
 #pip install validators
 import validators
 import requests
+#-----------------------------------------
 #choice1:open tab
 def openTab(lst,title,url):
   lst.append({})
@@ -10,7 +11,7 @@ def openTab(lst,title,url):
 #-----------------------------------------
 #choice2:close tab
 def closeTab(lst,index):
-  if(int(index)>len(lst) and lst!=[]):
+  if(int(index)>(len(lst)-1) and lst!=[]):
     return lst.remove(lst[len(lst)-1])
   elif(lst==[]):
     print("no Tab was found.")
@@ -78,3 +79,7 @@ while(choice!="9"):
       index1=input("Error, please enter an index: ")
     print(switchTab(lst,index1,url))
     print("- - - - - - - - - - - - - - -")
+#9-----------------------------------------
+  if(choice=="9"):
+    print("EXIT the APP")
+    
