@@ -19,6 +19,7 @@ def closeTab(lst,index):
   elif(index!="" and int(index)>(len(lst)-1) and lst!=[]):
     print("Tab is closed.")
     return lst.remove(lst[len(lst)-1])
+    
   elif(index=="" and lst!=[]):
     print("Tab is closed.")
     return lst.remove(lst[len(lst)-1])
@@ -26,7 +27,7 @@ def closeTab(lst,index):
   elif(int(index)>(len(lst)-1) and index!="" and lst!=[]):
     print("Tab is closed.")
     return lst.remove(lst[len(lst)-1])
-
+    
   else:
     print("Tab is closed.")
     return lst.remove(lst[int(index)])
@@ -101,10 +102,12 @@ while(choice!="9"):
 #2-----------------------------------------
   if(choice=="2"):
     index=input("Enter the index(0~"+str(len(lst)-1)+") of the Tab you want to close: ")
-    while(not index.isnumeric()):
-      index=input("Error, please enter an index: ")
-    closeTab(lst)
+    if(index!=""):
+      while(not index.isnumeric()):
+        index=input("Error, please enter an index: ")
+    closeTab(lst,index)
     print("- - - - - - - - - - - - - - -")
+
 #3-----------------------------------------
   if(choice=="3"):
     index1=input("Enter the index(0~"+str(len(lst)-1)+") to viw content of Tab: ")
