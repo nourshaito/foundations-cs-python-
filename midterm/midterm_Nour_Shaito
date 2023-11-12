@@ -43,6 +43,14 @@ def displayAllTabs(lst):
     for i in range(len(lst)):
       print(lst[i]["Title"])
 #-----------------------------------------
+#choice5: Open Nested Tab
+def openNestedTab(index2,lst,n_title,n_url):
+  for i in range(len(lst)):
+    if(lst[i]==lst[int(index2)]):
+      lst[i]["nested Title"]=n_title
+      lst[i]["nested URL"]=n_url
+      return lst
+#-----------------------------------------
 #print menu
 print("""
 1. Open Tab
