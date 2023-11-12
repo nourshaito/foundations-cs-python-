@@ -1,7 +1,6 @@
 #pip install validators
 import validators
-
-
+import requests
 #choice1:open tab
 def openTab(lst,title,url):
   lst.append({})
@@ -67,8 +66,15 @@ while(choice!="9"):
     print("- - - - - - - - - - - - - - -")
 #2-----------------------------------------
   if(choice=="2"):
-    index=input("Enter the index(0~"+str(len(lst))+") of the Tab you want to close: ")
+    index=input("Enter the index(0~"+str(len(lst)-1)+") of the Tab you want to close: ")
     while(not index.isnumeric()):
       index=input("Error, please enter an index: ")
     closeTab(lst)
+    print("- - - - - - - - - - - - - - -")
+#3-----------------------------------------
+  if(choice=="3"):
+    index1=input("Enter the index(0~"+str(len(lst)-1)+") to viw content of Tab: ")
+    while(not index1.isnumeric()):
+      index1=input("Error, please enter an index: ")
+    print(switchTab(lst,index1,url))
     print("- - - - - - - - - - - - - - -")
