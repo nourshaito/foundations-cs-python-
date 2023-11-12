@@ -34,7 +34,7 @@ def closeTab(lst,index):
 #-----------------------------------------
 #choice3:switch tab
 def switchTab(lst,index1,url):
-  if(int(index1)>(len(lst)-1) and lst!=[]):
+  if(index1=="" or int(index1)>(len(lst)-1) and lst!=[]):
     url1=lst[len(lst)-1].get("URL")
     return requests.get(url1).text
   elif(lst==[]):
@@ -111,8 +111,9 @@ while(choice!="9"):
 #3-----------------------------------------
   if(choice=="3"):
     index1=input("Enter the index(0~"+str(len(lst)-1)+") to viw content of Tab: ")
-    while(not index1.isnumeric()):
-      index1=input("Error, please enter an index: ")
+    if(index1!=""):
+      while(not index1.isnumeric()):
+        index1=input("Error, please enter an index: ")
     print(switchTab(lst,index1,url))
     print("- - - - - - - - - - - - - - -")
 #4-----------------------------------------
