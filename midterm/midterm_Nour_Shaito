@@ -41,7 +41,10 @@ def displayAllTabs(lst):
     print("no Tab was found.")
   else:
     for i in range(len(lst)):
-      print(lst[i]["Title"])
+      print("Main Tab: ",lst[i]["Title"])
+      for key in lst[i]:
+        if(key=="nested Title"):
+          print("\t Sub Tab: ",lst[i]["nested Title"])
 #-----------------------------------------
 #choice5: Open Nested Tab
 def openNestedTab(index2,lst,n_title,n_url):
