@@ -1,6 +1,8 @@
 #pip install validators
-import validators
 import requests
+import validators
+
+
 #-----------------------------------------
 #choice1:open tab
 def openTab(lst,title,url):
@@ -32,6 +34,11 @@ def switchTab(lst,index1,url):
       if(lst[i]==lst[int(index1)]):
         url2=lst[i].get("URL")
         return requests.get(url2).text
+#-----------------------------------------
+#choice4: Display All Tabs
+def displayAllTabs(lst):
+  for i in range(len(lst)):
+    print(lst[i]["Title"])
 #-----------------------------------------
 #print menu
 print("""
