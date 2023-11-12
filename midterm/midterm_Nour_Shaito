@@ -118,6 +118,9 @@ while(choice!="9"):
     n_url=input("Enter the URL of the nested Tab: ")
     openNestedTab(index2,lst,n_title,n_url)
   print("- - - - - - - - - - - - - - -")
+#6-----------------------------------------
+  if(choice=="6"):
+    clearAllTabs(lst)
 #9-----------------------------------------
   if(choice=="9"):
     print("EXIT the APP")
