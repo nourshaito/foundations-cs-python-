@@ -92,9 +92,12 @@ while(choice!="9"):
     print("- - - - - - - - - - - - - - -")
 #5-----------------------------------------
   if(choice=="5"):
+    index2=input("Specify the index(0~"+str(len(lst)-1)+") of the main Tab : ")
+    while(not index2.isnumeric()):
+      index2=input("Error, please enter an index: ")
     n_title=input("Enter the Title of the nested Tab: ")
     n_url=input("Enter the URL of the nested Tab: ")
-    openNestedTab(lst,n_title,n_url)
+    openNestedTab(index2,lst,n_title,n_url)
 #9-----------------------------------------
   if(choice=="9"):
     print("EXIT the APP")
