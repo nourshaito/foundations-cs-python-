@@ -37,8 +37,11 @@ def switchTab(lst,index1,url):
 #-----------------------------------------
 #choice4: Display All Tabs
 def displayAllTabs(lst):
-  for i in range(len(lst)):
-    print(lst[i]["Title"])
+  if(lst==[]):
+    print("no Tab was found.")
+  else:
+    for i in range(len(lst)):
+      print(lst[i]["Title"])
 #-----------------------------------------
 #print menu
 print("""
