@@ -20,6 +20,19 @@ def closeTab(lst,index):
       if(lst[i]==lst[int(index)]):
         return lst.remove(lst[i])
 #-----------------------------------------
+#choice3:switch tab
+def switchTab(lst,index1,url):
+  if(int(index1)>(len(lst)-1) and lst!=[]):
+    url1=lst[len(lst)-1].get("URL")
+    return requests.get(url1).text
+  elif(lst==[]):
+    return "no Tab was found."
+  else:
+    for i in range(len(lst)):
+      if(lst[i]==lst[int(index1)]):
+        url2=lst[i].get("URL")
+        return requests.get(url2).text
+#-----------------------------------------
 #print menu
 print("""
 1. Open Tab
