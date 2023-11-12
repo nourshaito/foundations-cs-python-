@@ -68,8 +68,11 @@ def openNestedTab(index2,lst,n_title,n_url):
 #-----------------------------------------
 #choice6: Clear All Tabs
 def clearAllTabs(lst):    
-    lst.clear()
-    print("All opened tabs are closed.")
+    if(lst!=[]):
+      lst.clear()
+      print("All opened tabs are closed.")
+    else:
+      print("There is no opened tabs")
 #-----------------------------------------
 #define an empty list of dictionaries
 lst=[]
