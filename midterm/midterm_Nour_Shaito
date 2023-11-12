@@ -67,9 +67,9 @@ def openNestedTab(index2,lst,n_title,n_url):
       return lst
 #-----------------------------------------
 #choice6: Clear All Tabs
-def clearAllTabs(lst):
-  for i in range(len(lst)):
-    return lst.remove(lst[i])
+def clearAllTabs(lst):    
+    lst.clear()
+    print("All opened tabs are closed.")
 #-----------------------------------------
 #define an empty list of dictionaries
 lst=[]
@@ -139,6 +139,7 @@ while(choice!="9"):
 #6-----------------------------------------
   if(choice=="6"):
     clearAllTabs(lst)
+    print("- - - - - - - - - - - - - - -")
 #9-----------------------------------------
   if(choice=="9"):
     print("EXIT the APP")
