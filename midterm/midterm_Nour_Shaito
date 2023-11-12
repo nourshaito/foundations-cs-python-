@@ -155,7 +155,12 @@ while(choice!="9"):
     print("- - - - - - - - - - - - - - -")
 #7-----------------------------------------
   if(choice=="7"):
-    saveTabs(lst)
+    path=input("Enter the path: ")
+    isExisting=os.path.exists(path)
+    if(isExisting==True):
+      saveTabs(lst,path)
+    else:
+      print("No such file or directory.")
     print("- - - - - - - - - - - - - - -")
 #9-----------------------------------------
   if(choice=="9"):
