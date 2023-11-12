@@ -83,7 +83,15 @@ def saveTabs(lst):
   with open('json_file.json', 'w') as file:
     file.write(json_file)
 
-  print(json_file)
+#-----------------------------------------
+#choice8: Import Tabs
+def importTabs(path): 
+  # path ex: "C:/Users/userc/OneDrive/Desktop/folder_name/file_name.json"
+  # use forward slash (/) only
+    file= open(path,)
+    data= json.load(file)
+    print(data)
+    file.close()
 #-----------------------------------------
 #define an empty list of dictionaries
 lst=[]
