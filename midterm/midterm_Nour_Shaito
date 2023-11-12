@@ -13,10 +13,12 @@ def openTab(lst,title,url):
 #-----------------------------------------
 #choice2:close tab
 def closeTab(lst,index):
-  if(int(index)>(len(lst)-1) and lst!=[]):
-    return lst.remove(lst[len(lst)-1])
-  elif(lst==[]):
+  if(index=="" and lst==[]):
     print("no Tab was found.")
+
+  elif(index!="" and int(index)>(len(lst)-1) and lst!=[]):
+    print("Tab is closed.")
+    return lst.remove(lst[len(lst)-1])
   else:
     print("Tab is closed.")
     return lst.remove(lst[int(index)])
