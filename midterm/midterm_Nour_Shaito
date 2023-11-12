@@ -51,6 +51,11 @@ def openNestedTab(index2,lst,n_title,n_url):
       lst[i]["nested URL"]=n_url
       return lst
 #-----------------------------------------
+#choice6: Clear All Tabs
+def clearAllTabs(lst):
+  for i in range(len(lst)):
+    return lst.remove(lst[i])
+#-----------------------------------------
 #define an empty list of dictionaries
 lst=[]
 #-----------------------------------------
