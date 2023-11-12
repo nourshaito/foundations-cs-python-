@@ -1,4 +1,5 @@
 #pip install validators
+import json
 import requests
 import validators
 
@@ -74,10 +75,14 @@ def clearAllTabs(lst):
     else:
       print("There is no opened tabs")
 #-----------------------------------------
+#json info from: https://www.geeksforgeeks.org/python-convert-list-of-dictionaries-to-json/
 #choice7: Save Tabs
-def saveTabs(lst):
-  final = json.dumps(lst, indent=1)
-  print(final)
+def saveTabs(lst):  
+  json_file=json.dumps(lst, indent=1)
+  with open('json_file.json', 'w') as file:
+    file.write(json_file)
+
+  print(json_file)
 #-----------------------------------------
 #define an empty list of dictionaries
 lst=[]
