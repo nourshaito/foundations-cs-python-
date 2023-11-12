@@ -158,10 +158,10 @@ while(choice!="9"):
   if(choice=="7"):
     path=input("Enter the path: ")
     isExisting=os.path.exists(path)
-    if(isExisting==True):
-      saveTabs(lst,path)
-    else:
-      print("No such file or directory.")
+    while(isExisting==False):
+      path=input("No such file or directory,enter a path: ")
+      isExisting=os.path.exists(path)
+    saveTabs(lst,path)
     print("- - - - - - - - - - - - - - -")
 #9-----------------------------------------
   if(choice=="9"):
