@@ -19,6 +19,14 @@ def closeTab(lst,index):
   elif(index!="" and int(index)>(len(lst)-1) and lst!=[]):
     print("Tab is closed.")
     return lst.remove(lst[len(lst)-1])
+  elif(index=="" and lst!=[]):
+    print("Tab is closed.")
+    return lst.remove(lst[len(lst)-1])
+
+  elif(int(index)>(len(lst)-1) and index!="" and lst!=[]):
+    print("Tab is closed.")
+    return lst.remove(lst[len(lst)-1])
+
   else:
     print("Tab is closed.")
     return lst.remove(lst[int(index)])
