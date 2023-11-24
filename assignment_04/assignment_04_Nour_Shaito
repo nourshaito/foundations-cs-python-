@@ -27,3 +27,50 @@ class Task:
         return self.__next
     def setNext(self,new_next):
         self.__next=new_next
+class TaskManager:
+    def __init__(self):
+        self.header=None
+        self.size=0
+    def task_queue(self,description,priority):
+        t=Task(description,priority)
+        print(t.id)
+        if self.size==0:
+            self.header=t
+            self.size+=1
+        else:
+            if (t.getPriority() > self.header.getPriority()):
+              t.setNext(self.header)
+              self.header = t
+              self.size += 1
+            else:
+              current=self.header
+              previous=current
+              while current!=None and current.getPriority()>=t.getPriority():
+                  # print(current.getPriority())
+                  # print(t.getPriority())
+                  previous=current
+                  current=current.getNext()
+              previous.setNext(t)
+              t.setNext(current)
+              self.size+=1
+    def findId(self,id):
+        current=self.header
+        print("test")
+        print(current.id)
+        o_id=current.id
+        while o_id!=id and current!=None:
+            current=current.getNext()
+            o_id=current.id
+        if o_id==id:
+            print("desc was",current.getDescription())
+        else:
+            print('id was not found')
+    def find_Highest_P(self):
+        current=self.header
+        # highest_task=Task
+        while (current.getNext() != None ):
+          current2 = current
+          while (current.next != None ):
+              if current2.getPriority()>current.getPriority():
+                  highest_task=current2
+          current = current.next
