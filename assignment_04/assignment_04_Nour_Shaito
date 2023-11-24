@@ -74,3 +74,24 @@ class TaskManager:
               if current2.getPriority()>current.getPriority():
                   highest_task=current2
           current = current.next
+class History:
+    def __init__(self):
+      self.header = None
+      self.size = 0
+    def push(self, t):
+      t.next = self.header
+      self.header = t
+      self.size += 1
+taskm=TaskManager()
+# t=Task(5,4)
+# t1=Task(3,2)
+# t2=Task(1,4)
+# t3=Task(1,4)
+# t3=Task(1,4)
+# print(t3.task_id)
+taskm.task_queue(5,4)
+taskm.task_queue(2,5)
+taskm.task_queue(6,1)
+taskm.findId(3)
+ht=History()
+ht.push()
