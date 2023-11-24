@@ -1,0 +1,29 @@
+class Task:
+    task_id=0
+    def __init__(self,description,priority):
+        self.__description=description
+        self.__priority=priority
+        self.__completed=False
+        self.__next=None
+        Task.task_id+=1
+        self.id=Task.task_id
+    def getDescription(self):
+        return self.__description
+    def setDescription(self,description):
+        self.__description=description
+    def getPriority(self):
+        return self.__priority
+    def setPriority(self,priority):
+        self.__priority=priority
+    # def getTaskId(self):
+    #     return self.__id
+    # def setTaskId(self,task_id):
+    #     self.__id=task_id
+    def getCompleted(self):
+        return self.__completed
+    def setCompleted(self,completed):
+        self.__completed=completed
+    def getNext(self):
+        return self.__next
+    def setNext(self,new_next):
+        self.__next=new_next
