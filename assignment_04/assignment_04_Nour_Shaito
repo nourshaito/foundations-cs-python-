@@ -81,6 +81,13 @@ class TaskManager:
             print(current.getDescription())
             #current.setNext(current.getNext)
             current=current.getNext()
+    def displayNotCompleted(self):
+        current=self.header
+        while(current!=None):
+            if(current.getCompleted()==False):
+                print(current.getDescription(),end=" ")
+            current=current.getNext()
+        print()
 class History:
     def __init__(self):
       self.header = None
@@ -137,6 +144,10 @@ it in the task history.
 #4-----------------------------------------
     if(choice=="4"):
         taskm.displayAllTasks()
+        print("---------------------")
+#5-----------------------------------------
+    if(choice=="5"):
+        taskm.displayNotCompleted()
         print("---------------------")
 #7-----------------------------------------
     if(choice=="7"):
