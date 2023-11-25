@@ -33,7 +33,7 @@ class TaskManager:
         self.size=0
     def task_queue(self,description,priority):
         t=Task(description,priority)
-        print(t.id)
+        #print(t.id)
         if self.size==0:
             self.header=t
             self.size+=1
@@ -55,14 +55,14 @@ class TaskManager:
               self.size+=1
     def findId(self,id):
         current=self.header
-        print("test")
-        print(current.id)
+        #print("test")
+        #print(current.id)
         o_id=current.id
         while o_id!=id and current!=None:
             current=current.getNext()
             o_id=current.id
         if o_id==id:
-            print("desc was",current.getDescription())
+            print("The Task of this ID is: ",current.getDescription())
         else:
             print('id was not found')
     def find_Highest_P(self):
@@ -118,6 +118,7 @@ if(choice=="1"):
     task_desc=input("Enter a new task description: ")
     task_priority=input("Enter its priority: ")
     taskm.task_queue(task_desc,task_priority)
+    print("---------------------")
 #2-----------------------------------------
     if(choice=="2"):
         id_task=input("Enter ID of the task: ")
@@ -125,6 +126,11 @@ if(choice=="1"):
             print("This ID is not available")
         else:
             taskm.findId(int(id_task))
+        print("---------------------")
+#4-----------------------------------------
+    if(choice=="4"):
+        taskm.displayAllTasks()
+        print("---------------------")
 #7-----------------------------------------
   if(choice=="7"):
     print("EXIT the APP")
