@@ -54,7 +54,7 @@ class TaskManager:
               previous.setNext(t)
               t.setNext(current)
               self.size+=1
-#choice_2
+#choice_2_____________________________________________________
     def findId(self,id):
         current=self.header
         #print("test")
@@ -86,20 +86,41 @@ class TaskManager:
 #choice_5_____________________________________________________
     def displayNotCompleted(self):
         current=self.header
+        a=""
         while(current!=None):
             if(current.getCompleted()==False):
-                print(current.getDescription(),end=" ")
+                a=a+" "+str(current.getDescription())
             current=current.getNext()
-        print()
+        print(a,end="")
+        if a=="":
+            print("All Tasks are Completed")
+        else:
+            print()
+
 class History:
     def __init__(self):
       self.header = None
       self.size = 0
-    def push(self, t):
-      t.next = self.header
-      self.header = t
-      self.size += 1
+    def push(self, t:Task):
+        if(taskm.size==0):
+            print("Task Manager is Empty!")
+        else:
+            while t!=None:
+                if t.getCompleted()!=True:
+                    break
+                t=t.getNext()
+            if t!=None:
+                t.next = self.header
+                self.header = t
+                self.size += 1
+                print(t.getDescription())
+                t.setCompleted(True)
+                #taskm.deleteFirst()
+            else:
+                print("All Tasks are Completed!")
+
 taskm=TaskManager()
+ht= History(taskm)
 # t=Task(5,4)
 # t1=Task(3,2)
 # t2=Task(1,4)
@@ -140,6 +161,10 @@ it in the task history.
             print("This ID is not available")
         else:
             taskm.findId(int(id_task))
+        print("---------------------")
+#3-----------------------------------------
+    if(choice=="3"):
+        ht.push(taskm.header)
         print("---------------------")
 #4-----------------------------------------
     if(choice=="4"):
