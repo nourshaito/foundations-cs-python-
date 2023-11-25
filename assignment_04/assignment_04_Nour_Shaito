@@ -115,6 +115,9 @@ it in the task history.
       choice=input("Error, please enter a valid number: ")
 #1-----------------------------------------
 if(choice=="1"):
-task_desc=input("Enter a new task description: ")
-task_priority=input("Enter its priority: ")
-taskm.task_queue(task_desc,task_priority)
+    task_desc=input("Enter a new task description: ")
+    task_priority=input("Enter its priority: ")
+    taskm.task_queue(task_desc,task_priority)
+#7-----------------------------------------
+  if(choice=="7"):
+    print("EXIT the APP")
