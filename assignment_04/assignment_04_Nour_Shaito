@@ -89,11 +89,12 @@ class TaskManager:
         a=""
         while(current!=None):
             if(current.getCompleted()==False):
-                a=a+" "+str(current.getDescription())
+                print("The following task(s) is/are not completed: ")
+                a=a+str(current.getDescription()+" ")
             current=current.getNext()
         print(a,end="")
         if a=="":
-            print("All Tasks are Completed")
+            print("All Tasks are Completed!")
         else:
             print()
 
@@ -113,23 +114,14 @@ class History:
                 t.next = self.header
                 self.header = t
                 self.size += 1
-                print(t.getDescription())
+                print("Task number",t.getDescription(),"is Completed now!")
                 t.setCompleted(True)
                 #taskm.deleteFirst()
             else:
                 print("All Tasks are Completed!")
 
 taskm=TaskManager()
-ht= History(taskm)
-# t=Task(5,4)
-# t1=Task(3,2)
-# t2=Task(1,4)
-# t3=Task(1,4)
-# t3=Task(1,4)
-# print(t3.task_id)
-# taskm.task_queue(5,4)
-# taskm.task_queue(2,5)
-# taskm.task_queue(6,1)
+ht= History()
 #-----------------------------------------
 choice=""
 while(choice!="7"):
@@ -173,6 +165,13 @@ it in the task history.
 #5-----------------------------------------
     if(choice=="5"):
         taskm.displayNotCompleted()
+        print("---------------------")
+#6-----------------------------------------
+    if(choice=="6"):
+        if(ht.size==0):
+            print("There's no Completed Tasks")
+        else:
+            print("Final Completed Task is: ",ht.header.getDescription())
         print("---------------------")
 #7-----------------------------------------
     if(choice=="7"):
