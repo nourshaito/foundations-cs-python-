@@ -118,6 +118,13 @@ if(choice=="1"):
     task_desc=input("Enter a new task description: ")
     task_priority=input("Enter its priority: ")
     taskm.task_queue(task_desc,task_priority)
+#2-----------------------------------------
+    if(choice=="2"):
+        id_task=input("Enter ID of the task: ")
+        if(id_task=="0"):
+            print("This ID is not available")
+        else:
+            taskm.findId(int(id_task))
 #7-----------------------------------------
   if(choice=="7"):
     print("EXIT the APP")
