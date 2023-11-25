@@ -89,9 +89,32 @@ taskm=TaskManager()
 # t3=Task(1,4)
 # t3=Task(1,4)
 # print(t3.task_id)
-taskm.task_queue(5,4)
-taskm.task_queue(2,5)
-taskm.task_queue(6,1)
-taskm.findId(3)
-ht=History()
-ht.push()
+# taskm.task_queue(5,4)
+# taskm.task_queue(2,5)
+# taskm.task_queue(6,1)
+# taskm.findId(3)
+# ht=History()
+# ht.push()
+#-----------------------------------------
+choice=""
+while(choice!="7"):
+#print menu
+  print("""1. Adding a new task to the task manager.
+2. Getting a task from the queue given a task id
+3. Marking the highest priority task as completed and putting
+it in the task history.
+4. Displaying all tasks in order of priority.
+5. Displaying only the tasks that are not completed.
+6. Displaying the last completed task.
+7. Exit
+- - - - - - - - - - - - - - -""")
+#-----------------------------------------
+#user choice
+  choice=input("Enter your choice: ")
+  while(not choice.isnumeric()):
+      choice=input("Error, please enter a valid number: ")
+#1-----------------------------------------
+if(choice=="1"):
+task_desc=input("Enter a new task description: ")
+task_priority=input("Enter its priority: ")
+taskm.task_queue(task_desc,task_priority)
