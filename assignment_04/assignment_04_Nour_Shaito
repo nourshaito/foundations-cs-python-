@@ -74,6 +74,13 @@ class TaskManager:
               if current2.getPriority()>current.getPriority():
                   highest_task=current2
           current = current.next
+    def displayAllTasks(self):
+        current=self.header
+        
+        while(current!=None):
+            print(current.getDescription())
+            #current.setNext(current.getNext)
+            current=current.getNext()
 class History:
     def __init__(self):
       self.header = None
