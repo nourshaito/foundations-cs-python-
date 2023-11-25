@@ -31,6 +31,7 @@ class TaskManager:
     def __init__(self):
         self.header=None
         self.size=0
+#define new task object
     def task_queue(self,description,priority):
         t=Task(description,priority)
         #print(t.id)
@@ -53,6 +54,7 @@ class TaskManager:
               previous.setNext(t)
               t.setNext(current)
               self.size+=1
+#choice_2
     def findId(self,id):
         current=self.header
         #print("test")
@@ -74,13 +76,14 @@ class TaskManager:
               if current2.getPriority()>current.getPriority():
                   highest_task=current2
           current = current.next
+#choice_4_____________________________________________________
     def displayAllTasks(self):
         current=self.header
-        
         while(current!=None):
             print(current.getDescription())
             #current.setNext(current.getNext)
             current=current.getNext()
+#choice_5_____________________________________________________
     def displayNotCompleted(self):
         current=self.header
         while(current!=None):
@@ -106,14 +109,11 @@ taskm=TaskManager()
 # taskm.task_queue(5,4)
 # taskm.task_queue(2,5)
 # taskm.task_queue(6,1)
-# taskm.findId(3)
-# ht=History()
-# ht.push()
 #-----------------------------------------
 choice=""
 while(choice!="7"):
 #print menu
-  print("""1. Adding a new task to the task manager.
+    print("""1. Adding a new task to the task manager.
 2. Getting a task from the queue given a task id
 3. Marking the highest priority task as completed and putting
 it in the task history.
