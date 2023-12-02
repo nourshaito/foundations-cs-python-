@@ -82,3 +82,88 @@ class FTree:
             return lst2
         else:
             print(a.data['Name'],'was not found')
+#----------------------------------------------------------------
+    def findRelationship(self,a,b):
+        lst_a=[]
+        lst_b=[]
+        lst_a=self.GetParent(a)
+        lst_b=self.GetParent(b)
+        for i in range(len(lst_a)):
+            print(lst_a[i].data['Name'])
+        for i in range(len(lst_b)):
+            print(lst_b[i].data['Name'])
+        if len(lst_a)<len(lst_b):
+            min_lst=lst_a
+            max_lst=lst_b
+        else:
+            min_lst=lst_b
+            max_lst=lst_a
+        if lst_a==[] or lst_b==[]:
+            print('one of them does not exist')
+        else:
+            counter=0
+            if lst_a[0]==lst_b[0]:
+                print('same person')
+            try:
+
+                if lst_a[1]==lst_b[1]:
+                    print('they are brothers')
+            finally:
+                    for i in range(1,len(max_lst)):
+                        if min_lst[0]==max_lst[i]:
+                            counter+=i
+                            break
+                    if counter==0:
+                        print('they are not directly related')
+                    elif counter==1:
+                        print(min_lst[0].data['Name'],'is the father of',max_lst[0].data['Name'])
+
+                    else:
+                        print(min_lst[0].data['Name'],'is the',counter-1,' times grand father of',max_lst[0].data['Name'])
+#----------------------------------------------------------------
+def main():
+    print('''
+1. Add Family Member
+2. Display Sorted Birthdays
+3. Find Relationship
+4. Visualize Family Tree
+5. Count Same First Names
+6. Exit
+- - - - - - - - - - - - - - -
+    ''')
+    tree=FTree()
+    choice=''
+    tree.addchild(tree.root,"2","1","1992-6-15")
+    a=FNode("2","1","1992-6-15")
+    tree.addchild(a,"ha","ba","1992-6-18")
+    c=FNode("ha","ba","1992-6-18")
+    tree.addchild(tree.root,"4","3","1992-6-21")
+    b=FNode("4","3","1992-6-21")
+    while choice!='6':
+        choice=input('please enter a choice : ')
+#----------------------------------------------------------------
+        if choice=='1':
+            child_name=input('Enter a name : ')
+            child_family=input('Enter a family : ')
+            child_birthD=input('Enter a birthdate(day) : ')
+            while not child_birthD.isnumeric() or int(child_birthD)>31 or 1>int(child_birthD):
+                child_birthD=input('Enter a birthdate(day) 1-31 : ')
+            child_birthM=input('Enter a birthdate(month) : ')
+            while not child_birthM.isnumeric() or int(child_birthM)>12 or 1>int(child_birthM):
+                child_birthM=input('Enter a birthdate(month) 1-12 : ')
+            child_birthY=input('Enter a birthdate(year) : ')
+            while not child_birthY.isnumeric() or int(child_birthY)>2024:
+                child_birthY=input('Enter a birthdate(year) < 2024 : ')
+            child_birth=child_birthY+'-'+child_birthM+'-'+child_birthD
+            # print(child_birth)
+            parent_name=input('Enter a name for the parent : ')
+            parent_family=input('Enter a family for the parent : ')
+            parent_birth=input('Enter a birthdate for the parent : ')
+            parent=FNode(parent_name,parent_family,parent_birth)
+            tree.addchild(parent,child_name,child_family,child_birth)
+            a=FNode(child_name,child_family,child_birth)
+            tree.GetParent(a)
+#----------------------------------------------------------------
+        if choice=='2':
+            tree.displaySortedBD()
+#----------------------------------------------------------------
