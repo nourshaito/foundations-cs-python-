@@ -1,0 +1,51 @@
+class AdjNode:
+    verticesNb=0
+    def __init__(self,name):
+        self.vertex=name
+        self.next=None
+        AdjNode.verticesNb+=1
+        self.verticesNb=AdjNode.verticesNb
+
+    # def getName(self):
+    #     return name
+        
+class SocialMedia:
+    def __init__(self):
+        self.V = AdjNode.verticesNb
+        self.graph = [None] * self.V
+
+    # def newUser(self,name):
+    def add_edge(self, s, d):
+        node = AdjNode(d)
+        node.next = self.graph[s]
+        self.graph[s] = node
+
+        node = AdjNode(s)
+        node.next = self.graph[d]
+        self.graph[d] = node
+
+sm=SocialMedia()
+print("""1. Add a user to the platform.
+2. Remove a user from the platform.
+3. Send a friend request to another user.
+4. Remove a friend from your list.
+5. View your list of friends.
+6. View the list of users on the platform.
+7. Exit
+- - - - - - - - - - - - - - -""")
+choice=''
+
+while choice!='7':
+    choice=input("Enter a choice(1-7): ")
+
+    if choice=='1':
+        
+        name=input("Enter your name: ")
+        a=AdjNode(name)
+
+        while name==a.vertex:
+            name=input("Already exists, please choose another name: ")
+            a=AdjNode(name)
+
+
+            
