@@ -1,0 +1,48 @@
+class FNode:    
+    def __init__(self,name,family,age):
+        # self.name=name
+        # self.family=family
+        # self.Birth=age
+        self.data={'Name':name,'Family':family,'Birth':age}
+        self.children=[]
+        self.parent=None
+class FTree:
+    lst=[]
+    def __init__(self):
+        self.root=FNode('A2','2B','1992-6-11')
+    def Search(self,s,node):
+        if node==None:
+            print(str(s.data['Name']),'was not found')
+            return None
+        elif s.data==node.data:
+            print(str(s.data['Name']),'was found')
+            return node
+        else:
+            for child in node.children:
+                found_node= self.Search(s,child)
+                if found_node is not None:
+                    # print(found_node.data,'was found')
+                    return found_node
+    def SearchP(self,s,node):
+        if node==None:
+            return None
+        elif s.data==node.data:
+            return node
+        else:
+            for child in node.children:
+                found_node= self.SearchP(s,child)
+                if found_node is not None:
+                    # print(found_node.data,'was found')
+                    return found_node
+    def addchild(self,parent,child_name,child_family,child_age):
+        if child_age<=parent.data['Birth']:
+            print('child should not be older than the parent @')
+        else:
+            parent=self.SearchP(parent,self.root)
+            if parent is not None:
+                p=FNode(child_name,child_family,child_age)
+                parent.children.append(p)
+                p.parent=parent
+                print(child_name,'was added')
+            else:
+                print('parent was not found')
