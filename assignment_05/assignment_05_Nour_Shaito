@@ -6,6 +6,7 @@ class FNode:
         self.data={'Name':name,'Family':family,'Birth':age}
         self.children=[]
         self.parent=None
+#----------------------------------------------------------------
 class FTree:
     lst=[]
     def __init__(self):
@@ -23,6 +24,7 @@ class FTree:
                 if found_node is not None:
                     # print(found_node.data,'was found')
                     return found_node
+#----------------------------------------------------------------
     def SearchP(self,s,node):
         if node==None:
             return None
@@ -34,6 +36,7 @@ class FTree:
                 if found_node is not None:
                     # print(found_node.data,'was found')
                     return found_node
+#----------------------------------------------------------------
     def addchild(self,parent,child_name,child_family,child_age):
         if child_age<=parent.data['Birth']:
             print('child should not be older than the parent @')
@@ -46,3 +49,36 @@ class FTree:
                 print(child_name,'was added')
             else:
                 print('parent was not found')
+#----------------------------------------------------------------
+    def getDate(self,node):
+        if node==None:
+            return
+        else:
+
+            self.lst.append(node.data['Birth'])
+            for child in node.children:
+                self.getDate(child)
+#----------------------------------------------------------------
+    def displaySortedBD(self):
+        self.getDate(self.root)
+        for i in range(len(self.lst)-1):
+            for j in range(i+1,len(self.lst)):
+                if self.lst[i]<self.lst[j]:
+                    self.lst[j],self.lst[i]=self.lst[i],self.lst[j]
+        self.lst=self.lst[::-1]
+
+        print(self.lst)
+        self.lst=[]
+#----------------------------------------------------------------
+    def GetParent(self,a):
+        lst2=[]
+        a=self.SearchP(a,self.root)
+        if a is not None:
+            while a !=None:
+                lst2.append(a)
+                a=a.parent
+            # for i in range(len(lst2)):
+            #     print(lst2[i].data['Name'])
+            return lst2
+        else:
+            print(a.data['Name'],'was not found')
