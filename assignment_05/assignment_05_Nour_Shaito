@@ -167,3 +167,44 @@ def main():
         if choice=='2':
             tree.displaySortedBD()
 #----------------------------------------------------------------
+        if choice=='3':
+            #member1
+            child_name=input('Enter member1 name : ')
+            child_family=input('Enter member1 family : ')
+            child_birthD=input('Enter member1 birthdate(day) : ')
+            while not child_birthD.isnumeric() or int(child_birthD)>31 or 1>int(child_birthD):
+                child_birthD=input('Enter member1 birthdate(day) 1-31 : ')
+            child_birthM=input('Enter member1 birthdate(month) : ')
+            while not child_birthM.isnumeric() or int(child_birthM)>12 or 1>int(child_birthM):
+                child_birthM=input('Enter member1 birthdate(month) 1-12 : ')
+            child_birthY=input('Enter member1 birthdate(year) : ')
+            while not child_birthY.isnumeric() or int(child_birthY)>2024:
+                child_birthY=input('Enter member1 birthdate(year) < 2024 : ')
+            child_birth=child_birthY+'-'+child_birthM+'-'+child_birthD
+
+            f1=FNode(child_name,child_family,child_birth)
+
+            child_name2=input('Enter member2 name : ')
+            child_family2=input('Enter member2 family : ')
+            child_birthD2=input('Enter member2 birthdate(day) : ')
+            while not child_birthD2.isnumeric() or int(child_birthD2)>31 or 1>int(child_birthD2):
+                child_birthD2=input('Enter member2 birthdate(day) 1-31 : ')
+            child_birthM2=input('Enter member2 birthdate(month) : ')
+            while not child_birthM2.isnumeric() or int(child_birthM2)>12 or 1>int(child_birthM2):
+                child_birthM2=input('Enter member2 birthdate(month) 1-12 : ')
+            child_birthY2=input('Enter member2 birthdate(year) : ')
+            while not child_birthY2.isnumeric() or int(child_birthY2)>2024:
+                child_birthY2=input('Enter member2 birthdate(year) < 2024 : ')
+            child_birth2=child_birthY2+'-'+child_birthM2+'-'+child_birthD2
+
+            f2=FNode(child_name2,child_family2,child_birth2)
+
+            tree.findRelationship(f1,f2)
+#----------------------------------------------------------------
+        if choice=='4':
+            tree.findRelationship(c,b)
+#----------------------------------------------------------------
+        if choice=='6':
+            print('EXIT')
+
+main()
